@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Behaviours\" />
+    <Folder Include="Contracts\Infrastructure\" />
+    <Folder Include="Contracts\Persistence\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Features\Orders\Commands\CheckoutOrder\" />
+  </ItemGroup>
+
+</Project>
