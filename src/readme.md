@@ -48,6 +48,10 @@ or using tools->query tool
   Insert into Coupon(ProductName,Description,Amount)  Values('IPhone X','IPhone Discount', 150);
   Insert into Coupon(ProductName,Description,Amount)  Values('Samsung 10','Samsung Discount', 100);
 
+  GRPC issue on creating on asp.net core 6 ->error: lanaguage requeired
+
+  
+
 
 
 
