@@ -1,4 +1,6 @@
 //using EventBus.Messages.Common;
+
+using EventBus.Messages.Common;
 using MassTransit;
 using Ordering.API.EventBusConsumer;
 using Ordering.API.Extensions;
@@ -12,22 +14,25 @@ ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(configuration);
 
-//builder.Services.AddMassTransit(config => {
+builder.Services.AddMassTransit(config =>
+{
 
-//    config.AddConsumer<BasketCheckoutConsumer>();
+    config.AddConsumer<BasketCheckoutConsumer>();
 
-//    config.UsingRabbitMq((ctx, cfg) => {
-//        cfg.Host(configuration["EventBusSettings:HostAddress"]);
+    config.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host(configuration["EventBusSettings:HostAddress"]);
 
-//        cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
-//        {
-//            c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
-//        });
-//    });
-//});
-//builder.Services.AddMassTransitHostedService();
+        cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
+        {
+            c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
+        });
+    });
+});
+builder.Services.AddMassTransitHostedService();
+
 builder.Services.AddAutoMapper(typeof(Program));
-//builder.Services.AddScoped<BasketCheckoutConsumer>();
+builder.Services.AddScoped<BasketCheckoutConsumer>();
 
 
 // Add services to the container.
